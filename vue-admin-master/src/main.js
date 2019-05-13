@@ -10,13 +10,19 @@ import Vuex from 'vuex'
 //import NProgress from 'nprogress'
 //import 'nprogress/nprogress.css'
 import routes from './routes'
-import Mock from './mock'
-Mock.bootstrap();
 import 'font-awesome/css/font-awesome.min.css'
+
+import axios from 'axios'
+
 
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(Vuex)
+
+//配置axios的base路径
+axios.defaults.baseURL = "http://localhost:9527/services"
+//将axios配置为全局的属性
+Vue.prototype.$http = axios
 
 //NProgress.configure({ showSpinner: false });
 

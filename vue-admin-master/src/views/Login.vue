@@ -51,7 +51,20 @@
             this.logining = true;
             //NProgress.start();
             var loginParams = { username: this.ruleForm2.account, password: this.ruleForm2.checkPass };
-            requestLogin(loginParams).then(data => {
+            this.$http.post("/plat/login",loginParams).then((res)=>{
+                this.logining = false;
+                let data = res.data;
+                if(data.success){
+                    sessionStorage.setItem('user', JSON.stringify("{}"));
+                    this.$router.push({ path: '/echarts' });
+                }else{
+                    this.$message({
+                        message: data.message,
+                        type: 'error'
+                    });
+                }
+            })
+            /*requestLogin(loginParams).then(data => {
               this.logining = false;
               //NProgress.done();
               let { msg, code, user } = data;
@@ -64,7 +77,7 @@
                 sessionStorage.setItem('user', JSON.stringify(user));
                 this.$router.push({ path: '/table' });
               }
-            });
+            });*/
           } else {
             console.log('error submit!!');
             return false;
