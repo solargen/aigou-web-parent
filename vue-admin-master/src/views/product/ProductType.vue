@@ -1,32 +1,45 @@
 <template>
-    <div style="height: 630px">
-        <el-row style="height: 100%">
-            <el-col class="container-left" :span="5">
-                <el-tree >
+    <el-container style="height: 630px">
+        <el-aside width="300px">
+            <el-tree :data="productTypes" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+        </el-aside>
+        <el-main>
 
-                </el-tree>
-            </el-col>
-            <el-col class="container-right" :span="19">
-
-            </el-col>
-        </el-row>
-    </div>
+        </el-main>
+    </el-container>
 </template>
 
 <script>
     export default {
-        name: "product-type.vue"
+        data(){
+            return {
+                productTypes:[],
+                defaultProps: {
+                    children: 'children',
+                    label: 'name'
+                }
+            }
+        },
+        methods:{
+            //加载树的数据
+            loadTreeData(){
+                this.$http.get("/product/productType/tree").then((res)=>{
+                    this.productTypes = res.data;
+                })
+            }
+        },
+        mounted(){
+            this.loadTreeData();
+        }
     }
 </script>
 
 <style scoped>
-    .container-left{
-        height: 100%;
+    .el-aside{
         border:1px solid #ccc;
-        border-right:none;
+        border-right: none;
     }
-    .container-right{
-        height: 100%;
-        border:1px solid #ccc
+    .el-main{
+        border:1px solid #ccc;
     }
 </style>
