@@ -172,10 +172,10 @@
         <el-dialog
                 title="SKU属性管理"
                 :visible.sync="skuDialogVisible"
-                width="40%">
+                width="60%">
 
             <!--卡片     外层的卡片代表者一个sku属性-->
-            <el-card class="box-card" v-for="skuProperty in skuProperties">
+            <el-card class="box-card" v-for="skuProperty in skuProperties" style="margin-bottom: 5px">
                 <!--内层的div代表sku属性的选项-->
                 <div slot="header" class="clearfix">
                     <span>{{skuProperty.specName}}</span>
@@ -186,10 +186,42 @@
                 </div>
             </el-card>
 
+            <el-table
+                    :data="skus"
+                    border
+                    style="width: 100%">
+                <el-table-column
+                        type="index"
+                        width="50">
+                </el-table-column>
+                <template v-for="(value,key) in skus[0]">
+                    <!--更改价格和库存单元格和标题-->
+                    <el-table-column v-if="key=='price'"
+                                     :prop="key"
+                                     label="价格">
+                        <template scope="scope">
+                            <el-input v-model="scope.row.price"></el-input>
+                        </template>
+                    </el-table-column>
+                    <el-table-column v-else-if="key=='availableStock'"
+                                     :prop="key"
+                                     label="库存">
+                        <template scope="scope">
+                            <el-input v-model="scope.row.availableStock"></el-input>
+                        </template>
+                    </el-table-column>
+                    <!--隐藏sku_index属性-->
+                    <el-table-column v-else-if="key!='sku_index'"
+                                     :prop="key"
+                                     :label="key">
+                    </el-table-column>
+                </template>
+            </el-table>
+
 
             <span slot="footer" class="dialog-footer">
                 <el-button @click="skuDialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="skuDialogVisible = false">确 定</el-button>
+                <el-button type="primary" @click="subSkuProperties">确 定</el-button>
           </span>
         </el-dialog>
 
@@ -205,7 +237,13 @@
         },
         data() {
             return {
-                skuProperties:[{"id":30,"specName":"肤色","options":["小麦黄","曲妈黑"]},{"id":31,"specName":"年龄","options":["萝莉","御姐"]}],
+                skus:[
+                    {"肤色":"黑色","年龄":"萝莉","价格":0,"库存":0},
+                    {"肤色":"黑色","年龄":"御姐","价格":0,"库存":0},
+                    {"肤色":"黄色","年龄":"萝莉","价格":0,"库存":0},
+                    {"肤色":"黄色","年龄":"御姐","价格":0,"库存":0}
+                ],
+                skuProperties:[],
                 skuDialogVisible:false,//sku属性模态框
                 viewProperties:[],
                 viewDialogVisible:false,//显示属性模态框
@@ -268,6 +306,33 @@
             }
         },
         methods: {
+            //保存sku
+            subSkuProperties(){
+                //准备请求参数
+                let para = {}
+                para.skuProperties = this.skuProperties;//保存到商品表
+                para.productId = this.sels[0].id;
+                para.skus = this.skus;//添加到sku表中
+                //发送请求
+                this.$confirm('确认提交吗？', '提示', {}).then(() => {
+                    this.$http.post("/product/product/skuProperties",para).then(res=>{
+                        let data = res.data;
+                        if(data.success){
+                            this.$message({
+                                message: '保存成功!',
+                                type: 'success'
+                            });
+                            //关闭模态框
+                            this.skuDialogVisible = false;
+                        }else{
+                            this.$message({
+                                message: data.message,
+                                type: 'error'
+                            });
+                        }
+                    })
+                })
+            },
             handleSkuProperties(){
                 //判断是否选中一行属性
                 if(this.sels.length!=1){
@@ -277,6 +342,11 @@
                     });
                     return;
                 }
+                //查询sku属性以及属性列表
+                let productId = this.sels[0].id;
+                this.$http.get("/product/product/skuProperties?productId="+productId).then(res=>{
+                    this.skuProperties = res.data;
+                })
                 this.skuDialogVisible = true;
             },
             //保存显示属性
@@ -529,6 +599,38 @@
         mounted() {
             this.getProducts();
             this.getProductTypes();
+        },
+        watch:{
+            skuProperties:{//深度监听，可监听到对象、数组的变化
+                handler(val, oldVal){
+                    //动态生成skus值
+                    let res = this.skuProperties.reduce((pre,cur)=>{
+                        let result = [];
+                        pre.forEach(e1=>{
+                            e1.sku_index = (e1.sku_index||'')+"_";
+                            for(let i=0;i<cur.options.length;i++){
+                                let e2 = cur.options[i];
+                                let temp = {}
+                                Object.assign(temp,e1);
+                                temp[cur.specName] = e2;
+                                temp.sku_index += i;
+                                result.push(temp);
+                            }
+                        })
+                        return result;
+                    },[{}])
+
+                    //添加价格
+                    res.forEach(e1=>{
+                        e1.price = 0;
+                        e1.availableStock = 0;
+                        e1.sku_index = e1.sku_index.substring(1);
+                    })
+
+                    this.skus = res;
+                },
+                deep:true
+            }
         }
     }
 

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //两个数组求笛卡尔积
+    /*let arr1 = ["a","b","c"]
+    let arr2 = ["1","2","3"]
+    let arr3 = ["x","y","z"]
+    //  a_1   a_2  a_3  b_1 .......
+    //arr1.forEach(function(e1){})   e1就是arr1数组每次遍历的元素
+    //如果数组的个数不确定，这种方式便不可以取
+    arr1.forEach(e1=>{
+        arr2.forEach(e2=>{
+            arr3.forEach(e3=>{
+                console.log(e1+"_"+e2+"_"+e3)
+            })
+        })
+    })*/
+
+
+    // es6 的一个方法  ---  reduce 数组元素的“累加” 拿前一个元素和后面的元素依次进行计算
+    /*let arr1 = ["a","b","c","d"]
+    let arr2 = ["1","2","3","4"]
+    //["a_1","a_2","a_3","b_1",.....]
+    let arr3 = ["x","y","z"]
+    let arr4 = ["A","B","C"]
+    let arr = [arr1,arr2,arr3,arr4]
+
+    //arr.reduce(callback(pre,curr),init) pre是上一次的计算结果，curr当前元素   init是初始值
+    //如果设置了初始值，则第一次是拿初始值和第一个元素进行计算
+    //如果没有设置初始值，则第一次是拿第一个元素和第二个元素进行计算
+    let res = arr.reduce((pre,cur)=>{
+        //pre = ["a","b","c"]
+        //cur = ["1","2","3"]
+        let result = [];//作为每次计算的结果，作为下一次结算的pre
+        pre.forEach(e1=>{
+            cur.forEach(e2=>{
+                result.push(e1+"_"+e2)
+            })
+        })
+        return result;
+    })
+
+    console.log(res)*/
+
+
+    //模拟真实数据
+    let skuProperties = [
+        {
+            "specName": "肤色",
+            "options": ["黑色", "黄色"]
+        },
+        {
+            "specName": "年龄",
+            "options": ["萝莉", "御姐"]
+        },{
+            "specName": "体型",
+            "options": ["腿长1米8", "身高1米5"]
+        }]
+
+
+
+    let res = skuProperties.reduce((pre,cur)=>{
+        let result = [];
+        pre.forEach(e1=>{ // e1 {}
+            //cur {"specName":"肤色",options:["黑色","黄色"]}
+            //sku_index    位置  索引值   0_0_0
+            e1.sku_index = (e1.sku_index||'')+"_";  // e1 = {sku_index:'_'}
+            for(let i=0;i<cur.options.length;i++){
+                let e2 = cur.options[i]; //["黑色","黄色"]
+                let temp = {}
+                Object.assign(temp,e1);
+                temp[cur.specName] = e2;
+                temp.sku_index += i;//temp = {"肤色":"黑色",sku_index:'_0'}
+                result.push(temp);
+            }
+        })
+        return result;
+    },[{}])
+
+    //添加价格
+    res.forEach(e1=>{
+        e1.price = 0;
+        e1.availableStock = 0;
+        e1.sku_index = e1.sku_index.substring(1);
+    })
+
+
+    console.log(res)
+
+
+    /*let init = [{sku_index:_}]
+
+    let zero = [
+        {"肤色":"黑色",sku_index:_0},
+        {"肤色":"黄色",sku_index:1}
+    ]
+
+    let first = [
+        {"肤色":"黑色","年龄":"萝莉",sku_index:_0_0},
+        {"肤色":"黑色","年龄":"御姐"},
+        {"肤色":"黄色","年龄":"萝莉"},
+        {"肤色":"黄色","年龄":"御姐"}
+    ]*/
+
+
+</script>
+
+</body>
+</html>
