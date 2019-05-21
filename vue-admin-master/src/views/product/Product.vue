@@ -13,10 +13,10 @@
                     <el-button type="primary" @click="handleAdd">新增</el-button>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click="handleAdd">显示属性</el-button>
+                    <el-button type="primary" @click="handleViewProperties">显示属性</el-button>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click="handleAdd">SKU属性</el-button>
+                    <el-button type="primary" @click="handleSkuProperties">SKU属性</el-button>
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="handleAdd">上架</el-button>
@@ -140,6 +140,60 @@
                 <el-button type="primary" @click.native="addSubmit" :loading="addLoading">提交</el-button>
             </div>
         </el-dialog>
+
+
+
+        <!-------------------------------------------显示属性维护的模态框-------------------------------------->
+        <el-dialog
+                title="显示属性管理"
+                :visible.sync="viewDialogVisible"
+                width="40%">
+
+            <!--卡片-->
+            <el-card class="box-card">
+                <div v-for="index in viewProperties.length" :key="index" class="text item" style="margin-bottom: 5px">
+                    <el-row>
+                        <el-col :span="3">{{viewProperties[index-1].specName}}:</el-col>
+                        <el-col :span="21">
+                            <el-input v-model="viewProperties[index-1].value"></el-input>
+                        </el-col>
+                    </el-row>
+                </div>
+            </el-card>
+
+
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="viewDialogVisible = false">取 消</el-button>
+                <el-button type="primary" @click="subViewProperties">确 定</el-button>
+          </span>
+        </el-dialog>
+
+        <!-------------------------------------------SKU属性维护的模态框-------------------------------------->
+        <el-dialog
+                title="SKU属性管理"
+                :visible.sync="skuDialogVisible"
+                width="40%">
+
+            <!--卡片     外层的卡片代表者一个sku属性-->
+            <el-card class="box-card" v-for="skuProperty in skuProperties">
+                <!--内层的div代表sku属性的选项-->
+                <div slot="header" class="clearfix">
+                    <span>{{skuProperty.specName}}</span>
+                </div>
+                <div v-for="index in skuProperty.options.length+1" :key="index" class="text item">
+                    <el-input v-model="skuProperty.options[index-1]" style="width:80%"></el-input>
+                    <el-button icon="el-icon-delete" @click="skuProperty.options.splice(index-1,1)" style="width:10%"></el-button>
+                </div>
+            </el-card>
+
+
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="skuDialogVisible = false">取 消</el-button>
+                <el-button type="primary" @click="skuDialogVisible = false">确 定</el-button>
+          </span>
+        </el-dialog>
+
+
     </section>
 </template>
 
@@ -151,6 +205,10 @@
         },
         data() {
             return {
+                skuProperties:[{"id":30,"specName":"肤色","options":["小麦黄","曲妈黑"]},{"id":31,"specName":"年龄","options":["萝莉","御姐"]}],
+                skuDialogVisible:false,//sku属性模态框
+                viewProperties:[],
+                viewDialogVisible:false,//显示属性模态框
                 editorOption:{},
                 //商品类型
                 productTypes: [],
@@ -168,7 +226,7 @@
                 page: 1,
                 size:10,
                 listLoading: false,
-                sels: [],//列表选中列
+                sels: [],//列表选中行
 
                 editFormVisible: false,//编辑界面是否显示
                 editLoading: false,
@@ -210,6 +268,62 @@
             }
         },
         methods: {
+            handleSkuProperties(){
+                //判断是否选中一行属性
+                if(this.sels.length!=1){
+                    this.$message({
+                        message: '只能选中一行商品进行操作!',
+                        type: 'warning'
+                    });
+                    return;
+                }
+                this.skuDialogVisible = true;
+            },
+            //保存显示属性
+            subViewProperties(){
+                //准备请求参数
+                let para = {}
+                para.viewProperties = this.viewProperties;
+                para.productId = this.sels[0].id;
+                //发送请求
+                this.$confirm('确认提交吗？', '提示', {}).then(() => {
+                    this.$http.post("/product/product/viewProperties",para).then(res=>{
+                        let data = res.data;
+                        if(data.success){
+                            this.$message({
+                                message: '保存成功!',
+                                type: 'success'
+                            });
+                            //关闭模态框
+                            this.viewDialogVisible = false;
+                        }else{
+                            this.$message({
+                                message: data.message,
+                                type: 'error'
+                            });
+                        }
+                    })
+                })
+            },
+            //点击显示属性
+            handleViewProperties(){
+                //判断是否选中一行属性
+                if(this.sels.length!=1){
+                    this.$message({
+                        message: '只能选中一行商品进行操作!',
+                        type: 'warning'
+                    });
+                    return;
+                }
+
+
+              //发送请求请求viewProperties
+              let productId = this.sels[0].id;
+              this.$http.get("/product/product/viewProperties?productId="+productId).then(res=>{
+                  this.viewProperties = res.data;//后台要返回一个[{"id":2,"name":"产品名称","value":"越南新娘"},{"id":4,"name":"样式","value":"肥胖"}]格式的数组
+              })
+              this.viewDialogVisible = true;
+            },
             //文件上传成功钩子函数
             handleUploadSeccess(response){
                 this.addForm.mediasArr.push(response.data)
@@ -384,7 +498,9 @@
               result += ']';
               return result;
             },
+            //当table的复选框发送选中或者取消选中时的回调
             selsChange: function (sels) {
+                console.log("sels",sels)
                 this.sels = sels;
             },
             //批量删除
