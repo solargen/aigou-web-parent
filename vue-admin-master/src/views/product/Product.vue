@@ -237,12 +237,7 @@
         },
         data() {
             return {
-                skus:[
-                    {"肤色":"黑色","年龄":"萝莉","价格":0,"库存":0},
-                    {"肤色":"黑色","年龄":"御姐","价格":0,"库存":0},
-                    {"肤色":"黄色","年龄":"萝莉","价格":0,"库存":0},
-                    {"肤色":"黄色","年龄":"御姐","价格":0,"库存":0}
-                ],
+                skus:[],
                 skuProperties:[],
                 skuDialogVisible:false,//sku属性模态框
                 viewProperties:[],
@@ -603,7 +598,11 @@
         watch:{
             skuProperties:{//深度监听，可监听到对象、数组的变化
                 handler(val, oldVal){
+                    //filter es6中数组的一个方法 过滤返回一个新的数组
+                    //去掉没有值的属性
+                    //let tempSkuProperties = this.skuProperties.filter(o=>o.options.length>0)
                     //动态生成skus值
+                    //TODO  某个属性没有现象的时候前端bug
                     let res = this.skuProperties.reduce((pre,cur)=>{
                         let result = [];
                         pre.forEach(e1=>{
