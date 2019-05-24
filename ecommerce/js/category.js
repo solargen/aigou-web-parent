@@ -15,9 +15,9 @@ $(function() {
 		$(this).toggleClass('curr');
 	})
 	// a标签、input框、按钮点击出现虚线边框问题解决
-	$('a,.btn,button,input[type="radio"],input[type="checkbox"]').focus(function() {
-		this.blur()
-	});
+    $('a,.btn,button,input[type="radio"],input[type="checkbox"]').focus(function() {
+        this.blur()
+    });
 
 	// 筛选条件色块
 	$('.color-value li span').click(function() {

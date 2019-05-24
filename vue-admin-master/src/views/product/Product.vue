@@ -19,10 +19,10 @@
                     <el-button type="primary" @click="handleSkuProperties">SKU属性</el-button>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click="handleAdd">上架</el-button>
+                    <el-button type="primary" @click="handleOnSale(1)">上架</el-button>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click="handleAdd">下架</el-button>
+                    <el-button type="primary" @click="handleOnSale(0)">下架</el-button>
                 </el-form-item>
             </el-form>
         </el-col>
@@ -301,6 +301,62 @@
             }
         },
         methods: {
+            //上下架  type=1 上架  type=0 下架
+            handleOnSale(type){
+                //判断是否选中
+                if(this.sels.length<=0){
+                    this.$message({
+                        message: '至少选中一行商品进行操作!',
+                        type: 'warning'
+                    });
+                    return;
+                }
+                //判断是否选中了已上架/已下架的商品
+                let flag = true;//没有
+                this.sels.forEach(e=>{
+                    if(e.state == type){
+                        flag = false;//有
+                    }
+                })
+                if(!flag){
+                    this.$message({
+                        message: '不能重复'+(type==1?'上':'下')+'架!',
+                        type: 'warning'
+                    });
+                    return;
+                }
+                //满足条件发送请求
+                var ids = this.sels.map(item => item.id).toString();
+                this.$confirm('确认'+(type==1?'上':'下')+'架选中商品吗？', '提示', {
+                    type: 'warning'
+                }).then(() => {
+                    this.listLoading = true;
+                    //NProgress.start();
+                    let para = { ids: ids };
+                    this.$http.get(type==1?"/product/product/onSale":"/product/product/offSale",{
+                        params:para
+                    }).then(res=>{
+                        this.listLoading = false;
+                        let data = res.data;
+                        if(data.success){
+                            this.$message({
+                                message: '操作成功',
+                                type: 'success'
+                            });
+                            //重新加载
+                            this.getProducts();
+                        }else{
+                            this.$message({
+                                message: data.message,
+                                type: 'error'
+                            });
+                        }
+                    })
+                }).catch(() => {
+
+                });
+
+            },
             //保存sku
             subSkuProperties(){
                 //准备请求参数
