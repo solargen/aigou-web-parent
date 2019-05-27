@@ -85,21 +85,10 @@
 				}
 			});
 		</script>
-		<!--导入vue和axios-->
-<script type="text/javascript" src="js/vue/vue.min.js"></script>
-<script type="text/javascript" src="js/vue/axios.js"></script>
-
-<script type="text/javascript">
-    axios.defaults.baseURL = "http://127.0.0.1:9527/services"//配置前缀
-    Vue.prototype.$http = axios //给Vue这个类添加一个原型的属性,这个类的对象都能调用
-    Vue.config.productionTip = false
-</script>
-<title>爱购网 - 购我所爱 I LOVE BUY yoyoyo~~~</title>
-	</head>
+			</head>
 
 	<body class="pace-done">
 
-		<div id="myBody">
 		<!-- 站点选择 -->
 		<div class="header-top">
 			<div class="header-box">
@@ -447,110 +436,11 @@
 			<div class="breadcrumb clearfix">
 				<a href="http://www.itsource.cn/" class="index">首页</a>
 
+				<span class="crumbs-arrow">&gt;</span>
 
-				                    <span class="crumbs-arrow">&gt;</span>
-                    <div class="crumbs-nav crumbs-nav0">
-					<a class="crumbs-title" href="http://www.itsource.cn/list.html?cat_id=27">
-						家居 / 家装 / 厨具
-						<i class="icon"></i>
-					</a>
-					<div class="crumbs-drop">
-                <ul class="crumbs-drop-list">
-					                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">特产 / 食品 / 大大保健</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">家电 / 电器 / 五金</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">电脑 / 手机 / 数码</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">服装 / 鞋靴 / 箱包</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">个护 / 化妆 / 洗涤</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">珠宝 / 礼品 / 钟表</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">图书 / 音像 / 杂志</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">办公 / 设备 / 耗材</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">母婴 / 玩具 / 乐器</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">运动 / 户外 / 体育</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">汽车 / 用品 / 维保</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">农资 / 劳保 / 花卉</a>
-                        </li>
-											</ul>
-					</div>
-				</div>
-				                    <span class="crumbs-arrow">&gt;</span>
-                    <div class="crumbs-nav crumbs-nav0">
-					<a class="crumbs-title" href="http://www.itsource.cn/list.html?cat_id=27">
-						生活日用
-						<i class="icon"></i>
-					</a>
-					<div class="crumbs-drop">
-                <ul class="crumbs-drop-list">
-					                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">家装建材</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">家装软饰</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">家具</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">灯具</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">厨具</a>
-                        </li>
-											</ul>
-					</div>
-				</div>
-				                    <span class="crumbs-arrow">&gt;</span>
-                    <div class="crumbs-nav crumbs-nav0">
-					<a class="crumbs-title" href="http://www.itsource.cn/list.html?cat_id=27">
-						床上用品
-						<i class="icon"></i>
-					</a>
-					<div class="crumbs-drop">
-                <ul class="crumbs-drop-list">
-					                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">雨伞雨具</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">浴室用品</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">缝纫/针织用品</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">洗晒/熨烫</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">净化除味</a>
-                        </li>
-						                        <li>
-                            <a href="http://www.itsource.cn/list-1925.html">清洁工具</a>
-                        </li>
-											</ul>
-					</div>
-				</div>
-								<span class="crumbs-arrow">&gt;</span>
+				
+				<span class="crumbs-arrow">&gt;</span>
+
 				<span class="last">乐扣水杯</span>
 
 			</div>
@@ -613,7 +503,7 @@
 					<form action="http://www.itsource.cn/6043.html" method="post" name="" id="">
 
 						<!-- 商品名称 -->
-						<h1 class="goods-name SZY-GOODS-NAME">乐扣水杯 滴水不漏</h1>
+						<h1 class="goods-name SZY-GOODS-NAME">欧比森保暖白衬衫男士长袖修身韩版纯色加绒加厚商务衬衣男装寸衫C9002蓝色【加绒款】 44</h1>
 						<!-- 商品简单描述 -->
 						<p class="goods-brief second-color"></p>
 						<!-- 商品团购倒计时 -->
@@ -622,7 +512,7 @@
 							<!-- 商品不同的价格 -->
 							<div class="show-price">
 								<span class="price">市场价</span>
-								<font class="market-price SZY-MARKET-PRICE">￥xxx</font>
+								<font class="market-price SZY-MARKET-PRICE">￥198.00</font>
 							</div>
 							<!-- 红包 -->
 
@@ -741,7 +631,322 @@
 						<div class="choose">
 							<!-- 商品规格 -->
 
-							
+							<dl class="attr">
+								<dt class="dt">颜色</dt>
+								<dd class="dd">
+									<ul>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item selected" data-spec-id="3140" data-is-default="1">
+											<a href="javascript:void(0);" title="C9002蓝色【加绒款】">
+
+												<img src="img/test/TB2K2cAaICO.eBjSZFzXXaRiVXa_!!1739732836(2).jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C9002蓝色【加绒款】</span>
+											</a>
+
+											<i></i></li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3142" data-is-default="1">
+											<a href="javascript:void(0);" title="C9003粉色【加绒款】">
+
+												<img src="img/test/TB2BNAvaF5N.eBjSZFvXXbvMFXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C9003粉色【加绒款】</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3144" data-is-default="1">
+											<a href="javascript:void(0);" title="C8931藏蓝色【加绒款】">
+
+												<img src="img/test/TB2E7Wjb5gSXeFjy0FcXXahAXXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C8931藏蓝色【加绒款】</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3146" data-is-default="1">
+											<a href="javascript:void(0);" title="C9008白色斜纹领【加绒款】">
+
+												<img src="img/test/TB2Yg3paNaK.eBjSZFwXXXjsFXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C9008白色斜纹领【加绒款】</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3148" data-is-default="1">
+											<a href="javascript:void(0);" title="C9017蓝色提花【加绒款】">
+
+												<img src="img/test/TB2haQuaNeK.eBjSZFuXXcT4FXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C9017蓝色提花【加绒款】</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3126" data-is-default="1">
+											<a href="javascript:void(0);" title="S8218白色暗斜纹">
+
+												<img src="img/test/TB2Jf1clFXXXXXeXpXXXXXXXXXX_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8218白色暗斜纹</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3128" data-is-default="1">
+											<a href="javascript:void(0);" title="S8217黑色暗斜纹">
+
+												<img src="img/test/TB2D2EAcUWO.eBjSZPcXXbopVXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8217黑色暗斜纹</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3130" data-is-default="1">
+											<a href="javascript:void(0);" title="C8219藏蓝色">
+
+												<img src="img/test/TB2U4H6chmI.eBjy0FlXXbgkVXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C8219藏蓝色</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3132" data-is-default="1">
+											<a href="javascript:void(0);" title="S8222白色暗斜纹">
+
+												<img src="img/test/TB2281okVXXXXXNXpXXXXXXXXXX_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8222白色暗斜纹</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3134" data-is-default="1">
+											<a href="javascript:void(0);" title="S8250白色平板">
+
+												<img src="img/test/TB2G2rflVXXXXaqXXXXXXXXXXXX_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8250白色平板</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3136" data-is-default="1">
+											<a href="javascript:void(0);" title="S8252粉色平板">
+
+												<img src="img/test/TB2ZKvDcw9J.eBjSsppXXXAAVXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8252粉色平板</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3138" data-is-default="1">
+											<a href="javascript:void(0);" title="S8296白色提花">
+
+												<img src="img/test/TB2GFoMaraI.eBjy1XdXXcoqXXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8296白色提花</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3139" data-is-default="1">
+											<a href="javascript:void(0);" title="C9001白色【加绒款】">
+
+												<img src="img/test/TB2N0tMaHaI.eBjSszdXXaB6XXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C9001白色【加绒款】</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3141" data-is-default="1">
+											<a href="javascript:void(0);" title="C9005黑色【加绒款】">
+
+												<img src="img/test/TB2ztkuaRyN.eBjSZFkXXb8YFXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C9005黑色【加绒款】</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3143" data-is-default="1">
+											<a href="javascript:void(0);" title="C9006紫色【加绒款】">
+
+												<img src="img/test/TB2YNIvaF5N.eBjSZFvXXbvMFXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C9006紫色【加绒款】</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3145" data-is-default="1">
+											<a href="javascript:void(0);" title="C9007暗红色【加绒款】">
+
+												<img src="img/test/TB2wb3oaLOM.eBjSZFqXXculVXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C9007暗红色【加绒款】</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3147" data-is-default="1">
+											<a href="javascript:void(0);" title="C9009蓝色斜纹领【加绒款】">
+
+												<img src="img/test/TB2MmQoaPm2.eBjSZFtXXX56VXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C9009蓝色斜纹领【加绒款】</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3149" data-is-default="1">
+											<a href="javascript:void(0);" title="C9016白色提花-加绒款">
+
+												<img src="img/test/TB2qMNLaS1I.eBjy0FjXXabfXXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">C9016白色提花-加绒款</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3127" data-is-default="1">
+											<a href="javascript:void(0);" title="S8212浅蓝暗斜纹">
+
+												<img src="img/test/TB2y6u1aOGO.eBjSZFjXXcU9FXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8212浅蓝暗斜纹</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3129" data-is-default="1">
+											<a href="javascript:void(0);" title="S8213浅紫暗斜纹">
+
+												<img src="img/test/TB2smksaNaK.eBjSZFAXXczFXXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8213浅紫暗斜纹</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3131" data-is-default="1">
+											<a href="javascript:void(0);" title="S8221蓝色暗斜纹">
+
+												<img src="img/test/TB20o7hlFXXXXXqXpXXXXXXXXXX_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8221蓝色暗斜纹</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3133" data-is-default="1">
+											<a href="javascript:void(0);" title="S8260黑色平板">
+
+												<img src="img/test/TB2qAMZaw1J.eBjy0FpXXaMoXXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8260黑色平板</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3135" data-is-default="1">
+											<a href="javascript:void(0);" title="S8251蓝色平板">
+
+												<img src="img/test/TB2k8wSaseJ.eBjy0FiXXXqapXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8251蓝色平板</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3137" data-is-default="1">
+											<a href="javascript:void(0);" title="S8295蓝色提花">
+
+												<img src="img/test/TB2N53WaCiJ.eBjSspiXXbqAFXa_!!1739732836.jpg" width="30" height="30" alt="">
+
+												<span class="value-label">S8295蓝色提花</span>
+											</a>
+										</li>
+
+									</ul>
+								</dd>
+							</dl>
+
+							<dl class="attr">
+								<dt class="dt">尺码</dt>
+								<dd class="dd">
+									<ul>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item " data-spec-id="3150" data-is-default="0">
+											<a href="javascript:void(0);" title="38">
+
+												<span class="value-label">38</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3152" data-is-default="0">
+											<a href="javascript:void(0);" title="40">
+
+												<span class="value-label">40</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3154" data-is-default="0">
+											<a href="javascript:void(0);" title="42">
+
+												<span class="value-label">42</span>
+											</a>
+
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item selected" data-spec-id="3156" data-is-default="0">
+											<a href="javascript:void(0);" title="44">
+
+												<span class="value-label">44</span>
+											</a>
+											<i></i></li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3151" data-is-default="0">
+											<a href="javascript:void(0);" title="39">
+
+												<span class="value-label">39</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3153" data-is-default="0">
+											<a href="javascript:void(0);" title="41">
+
+												<span class="value-label">41</span>
+											</a>
+										</li>
+
+										<!-- 属性值被选中的状态 -->
+										<li class="goods-spec-item" data-spec-id="3155" data-is-default="0">
+											<a href="javascript:void(0);" title="43">
+
+												<span class="value-label">43</span>
+											</a>
+										</li>
+
+									</ul>
+								</dd>
+							</dl>
+
 							<!-- 购买数量 -->
 							<dl class="amount">
 								<dt class="dt">数量</dt>
@@ -1773,7 +1978,83 @@
 					
 					<div id="goods_attr_list" class="goods-detail-con goods-detail-tabs">
 						<ul class="goods-spec">
-													</ul>
+							
+							<li>
+								上市时间：
+								<span id="goods_attr_" title="2016年秋季" class="goods-attr-value">2016年秋季</span>
+							</li>
+							
+							<li>
+								品牌：
+								<span id="goods_attr_" title="PLAYBOY/花花公子" class="goods-attr-value">PLAYBOY/花花公子</span>
+							</li>
+							
+							<li>
+								袖长：
+								<span id="goods_attr_" title="长袖" class="goods-attr-value">长袖</span>
+							</li>
+							
+							<li>
+								适用对象：
+								<span id="goods_attr_" title="青年" class="goods-attr-value">青年</span>
+							</li>
+							
+							<li>
+								销售渠道类型：
+								<span id="goods_attr_" title="商场同款(线上线下都销售)" class="goods-attr-value">商场同款(线上线下都销售)</span>
+							</li>
+							
+							<li>
+								面料材质成分：
+								<span id="goods_attr_" title="棉100%" class="goods-attr-value">棉100%</span>
+							</li>
+							
+							<li>
+								风格：
+								<span id="goods_attr_" title="简约" class="goods-attr-value">简约</span>
+							</li>
+							
+							<li>
+								裤长：
+								<span id="goods_attr_" title="长裤" class="goods-attr-value">长裤</span>
+							</li>
+							
+							<li>
+								厚薄：
+								<span id="goods_attr_" title="常规" class="goods-attr-value">常规</span>
+							</li>
+							
+							<li>
+								材质：
+								<span id="goods_attr_" title="棉" class="goods-attr-value">棉</span>
+							</li>
+							
+							<li>
+								成分含量：
+								<span id="goods_attr_" title="95%以上" class="goods-attr-value">95%以上</span>
+							</li>
+							
+							<li>
+								图案：
+								<span id="goods_attr_" title="纯色" class="goods-attr-value">纯色</span>
+							</li>
+							
+							<li>
+								款号：
+								<span id="goods_attr_" title="D71QQ21-1" class="goods-attr-value">D71QQ21-1</span>
+							</li>
+							
+							<li>
+								适用性别：
+								<span id="goods_attr_" title="男" class="goods-attr-value">男</span>
+							</li>
+							
+							<li>
+								是否加绒：
+								<span id="goods_attr_" title="不加绒" class="goods-attr-value">不加绒</span>
+							</li>
+							
+						</ul>
 					</div>
 					
 					<!-- 规格参数 _end -->
@@ -1785,8 +2066,12 @@
 						
 						<!-- 商品后台上传的商品描述 -->
 						<div class="detail-content goods-detail-content">
-							$model.productExt.richContent
+							<div class="ajax-loading">
+								<img src="img/test/loading.gif" />
+							</div>
+							
 
+							
 						</div>
 					</div>
 					<!-- 商品详情 end -->
@@ -2215,6 +2500,55 @@
 				});
 			});
 		</script>
+		<script type="text/javascript">
+			//固定滚动条位置
+			$.fixedScorll.read("SZY_GOODS_SCORLL");
+
+			$().ready(function() {
+
+				var desc_container = $(".goods-detail-content");
+				var evaluate_container = $("#goods_evaluate");
+
+				function load() {
+
+					// 加载商品详情
+					if(!$("body").data("loading-goods-desc")) {
+						// 计算高度
+						if($(document).scrollTop() >= $(desc_container).offset().top - $(window).height()) {
+							$("body").data("loading-goods-desc", true);
+							$.get("js/data/goods-desc.json", {
+								sku_id: "6163"
+							}, function(result) {
+								$(desc_container).html(result.pc_desc);
+							}, "json");
+						}
+					}
+					// 评论
+					if(!$("body").data("loading-goods-comment")) {
+						// 计算高度
+						if($(document).scrollTop() >= $(evaluate_container).offset().top - $(window).height()) {
+							$("body").data("loading-goods-comment", true);
+							$.get('js/data/goods-comment.json', {
+								sku_id: "6163",
+								output: 1
+							}, function(result) {
+								if(result.code == 0) {
+									$(evaluate_container).html(result.data);
+								}
+							}, "json");
+						}
+					}
+				}
+
+				load();
+
+				// 加载商品详情和评论
+				$(window).scroll(function() {
+					load();
+				});
+
+			});
+		</script>
 		<!-- 结束：主要区域内容-->
 
 		<!-- 站点底部-->
@@ -2489,247 +2823,7 @@
 		</div>
 		<!-- 右侧边栏 _end -->
 
-		<!-- 底部 _start-->
-
-		<div class="site-footer">
-
-			<div class="footer-service">
-				<div align="center"><img src="img/test/14778844965714.jpg" alt="" height="85" width="1210"></div>
-			</div>
-
-			<div class="footer-related">
-
-				<div class="footer-article w1210">
-					<dl class="col-article col-article-spe">
-						<dt class="phone color">028-86261949</dt>
-						<dd class="email color">master@itsrouce.cn</dd>
-
-						<dd class="customer">
-							<span>联系我们</span>
-
-							<a href="#" target="_blank">
-								<em class="icon-ww"></em>
-							</a>
-
-							<a href="#" target="_blank">
-								<em class="icon-qq"></em>
-							</a>
-
-						</dd>
-
-					</dl>
-					<!---->
-					<dl class="col-article col-article-first">
-						<dt>新手上路</dt>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">购物流程</a>
-
-						</dd>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">订单查询</a>
-
-						</dd>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">常见问题</a>
-
-						</dd>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">在线客服</a>
-
-						</dd>
-						<!-- -->
-					</dl>
-					<!---->
-					<dl class="col-article col-article-first">
-						<dt>支付方式</dt>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">网上支付</a>
-
-						</dd>
-						<!-- -->
-					</dl>
-					<!---->
-					<dl class="col-article col-article-first">
-						<dt>配送服务</dt>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">配送范围及收费标准</a>
-
-						</dd>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">订单进度查询</a>
-
-						</dd>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">验货与签收</a>
-
-						</dd>
-						<!-- -->
-					</dl>
-					<!---->
-					<dl class="col-article col-article-first">
-						<dt>售后服务</dt>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">退换货政策</a>
-
-						</dd>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">退换货流程</a>
-
-						</dd>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">退款说明</a>
-
-						</dd>
-						<!-- -->
-					</dl>
-					<!---->
-					<dl class="col-article col-article-first">
-						<dt>商家合作</dt>
-
-						<dd>
-
-							<a rel="nofollow" href="#" target="_blank">商家入驻</a>
-
-						</dd>
-						<!-- -->
-					</dl>
-					<!---->
-
-					<div class="QR-code fr">
-
-						<ul class="tabs">
-
-						</ul>
-						<div class="code-content">
-
-							<div class="code ">
-								<img src="img/test/mall_wx_qrcode_0.jpg">
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-
-			<div class="footer-desc-copyright">
-
-				<p class="footer-ecscinfo">
-					<a href="#">首页</a>
-					|
-
-					<a href="#">隐私保护</a>
-					|
-
-					<a href="#">联系我们</a>
-					|
-
-					<a href="#">免责条款</a>
-					|
-
-					<a href="#">公司简介</a>
-					|
-
-					<a href="#">意见反馈</a>
-
-					|
-					<a rel="nofollow" target="_blank" href="#">会员登录</a>
-					|
-					<a rel="nofollow" target="_blank" href="http://bbs.itsource.cn/">会员论坛</a>
-					|
-					<a href="javascript:;" rel="nofollow">客服热线028-86261949</a>
-				</p>
-				<p class="footer-otherlink">
-					<a title="源码商城" target="_blank" href="http://itsource.cn">源码商城</a>
-
-					|
-
-					<a title="菁鱼课堂" target="_blank" href="http://www.itsource.cn">菁鱼课堂</a>
-
-					|
-
-					<a title="资讯速递" target="_blank" href="http://www.itsource.cn">资讯速递</a>
-
-					|
-
-					<a title="快递查询" target="_blank" href="http://m.kuaidi100.com">快递查询</a>
-
-					|
-
-					<a title="论坛" target="_blank" href="http://bbs.itsource.com/forum.php">会员论坛</a>
-
-					|
-
-					<a title="源代码教育咨询有限公司" target="_blank" href="http://www.itsource.cn">源代码教育咨询有限公司</a>
-
-				</p>
-
-				<p class="footer-beian"> ICP备案证书号:
-					<a rel="nofollow" target="_blank" href="#">蜀ICP备88888888号-1</a>
-					<a rel="nofollow" target="_blank" href="#"><i></i>蜀公网安备 45323525326664号</a>
-				</p>
-				<p class="footer-Copyright">Copyright &copy; 2017
-					<a target="_blank" style="margin:0;padding:0;" href="http://www.saodangzu.com/">itsource.cn</a> All Rights Reserved. </p>
-				<p>&nbsp;</p>
-
-				<p class="footer-fp-img">
-					<a target="_blank" href="#"><img src="img/test/kxwz.png"></a>
-					<a target="_blank" href="#"><img src="img/test/smyz.png"></a>
-					<a target="_blank" href="#"><img src="img/test/cxyz.jpg"></a>
-					<a target="_blank" href="#"><img src="img/test/hyyz.png"></a>
-					<a target="_blank" href="#"><img src="img/test/jpfw.png"></a>
-				</p>
-			</div>
-
-		</div>
-		<!-- 第三方流量统计 -->
-		<div style="display: none;"></div>
-		<!-- 底部 _end-->
-
-		<script type="text/javascript" src="js/jquery.fly.min.js"></script>
-		<script type="text/javascript" src="js/szy.cart.js"></script>
-		<!--[if lte IE 9]>
-<script type="text/javascript" src="/js/requestAnimationFrame.js"></script>
-<![endif]-->
-		<script type="text/javascript">
-			$().ready(function() {
-				$.cartbox.count = "0";
-				// 缓载图片
-				$("img").lazyload({
-					skip_invisible: false,
-					effect: 'fadeIn',
-					failure_limit: 20,
-					threshold: 200
-				});
-
-			});
-		</script>
-
-            <!-- 站点底部-->
-						<!-- 底部 _start-->
+				<!-- 底部 _start-->
 
 		<div class="site-footer">
 
@@ -2965,37 +3059,6 @@
 				});
 
 			});
-		</script>
-		</div>
-            <script id="skusDatas" type="text">
-                '$model.skus'
-			</script>
-        <script type="text/javascript">
-            new Vue({
-                el:"#myBody",
-                data(){
-                    return {
-                        indexs:[],
-                        skuDatas:[]
-                    }
-                },
-                methods:{
-                    setIndex(index,val){
-                        this.indexs[index-1]=val-1;
-                    }
-                },
-                mounted(){
-                    this.skuDatas = $.parseJSON($("#skusDatas").html());
-                },
-                computed: {
-                    sku(){
-                        const index = Object.values(this.indexs).join("_");
-                        return this.skuDatas.find(s=>s.indexs==index);
-                    }
-
-                }
-            });
-        </script>
-	</body>
+		</script>	</body>
 
 </html>
